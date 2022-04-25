@@ -238,6 +238,9 @@ st.write('Медиана повторной задачи Android', df_android_ne
 # # Распределение по дням
 
 # %%
+st.write("""# Распределение по дням""")
+
+# %%
 def creation_day(day):
     if int(day.days) <= 2:
         return 'Меньше 2 дней'
@@ -256,16 +259,25 @@ def creation_day(day):
 # ## Admins
 
 # %%
+st.write("""# Admins""")
+
+# %%
 st.write('Распределение повторных задач Admins', df_admins_new['diff'].apply(creation_day).value_counts())
 
 # %% [markdown]
 # ## iOS
 
 # %%
+st.write("""# iOS""")
+
+# %%
 st.write('Распределение повторных задач iOS', df_ios_new['diff'].apply(creation_day).value_counts())
 
 # %% [markdown]
 # ## Android
+
+# %%
+st.write("""# Android""")
 
 # %%
 st.write('Распределение повторных задач Android', df_android_new['diff'].apply(creation_day).value_counts())
