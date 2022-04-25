@@ -2,12 +2,15 @@
 import pandas as pd
 import streamlit as st
 from collections import Counter
+from PIL import Image
 
 # %% [markdown]
 # # Обзор данных
 
 # %%
-st.set_page_config(page_title="Количество созданных задач")
+im = Image.open("./logo_ugry.png")
+st.set_page_config(page_title="Количество созданных задач", page_icon=im)
+
 
 # %%
 st.title("Количество созданных задач")
