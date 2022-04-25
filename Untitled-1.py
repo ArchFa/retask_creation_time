@@ -256,18 +256,21 @@ def creation_day(day):
 # ## Admins
 
 # %%
-df_admins_new['diff'].apply(creation_day).value_counts()
+st.write('Распределение повторных задач Admins', df_admins_new['diff'].apply(creation_day).value_counts())
 
 # %% [markdown]
 # ## iOS
 
 # %%
-df_ios_new['diff'].apply(creation_day).value_counts()
+st.write('Распределение повторных задач iOS', df_ios_new['diff'].apply(creation_day).value_counts())
 
 # %% [markdown]
 # ## Android
 
 # %%
-df_android_new['diff'].apply(creation_day).value_counts()
+st.write('Распределение повторных задач Android', df_android_new['diff'].apply(creation_day).value_counts())
+
+# %%
+
 
 
