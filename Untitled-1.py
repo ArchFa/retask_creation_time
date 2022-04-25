@@ -7,43 +7,43 @@ from collections import Counter
 # # Обзор данных
 
 # %%
-# uploaded_file = st.file_uploader("Выбирете файл", 
-# help="Здесь может быть подсказка'")
+uploaded_file = st.file_uploader("Выбирете файл", 
+help="Здесь может быть подсказка'")
 
 
-# if uploaded_file is not None:
-#      df = pd.read_csv(uploaded_file, sep='|')
-#      df.columns = [
-#         'task_id',
-#         'task_name',
-#         'status',
-#         'communication_method',
-#         'date_creation',
-#         'customer_phone',
-#         'plathorm']
+if uploaded_file is not None:
+     df = pd.read_csv(uploaded_file, sep='|')
+     df.columns = [
+        'task_id',
+        'task_name',
+        'status',
+        'communication_method',
+        'date_creation',
+        'customer_phone',
+        'plathorm']
 
-#      # изменение типов
-#      df['customer_phone'] = df['customer_phone'].astype(str)
-#      df['task_id'] = df['task_id'].astype(int)
-#      df['date_creation'] = pd.to_datetime(df['date_creation'], format='%Y-%m-%dT%H:%M:%S')
+     # изменение типов
+     df['customer_phone'] = df['customer_phone'].astype(str)
+     df['task_id'] = df['task_id'].astype(int)
+     df['date_creation'] = pd.to_datetime(df['date_creation'], format='%Y-%m-%dT%H:%M:%S')
 
-#      # удвление тестовых номеров, которые начинаются на 520...
-#      df['phone'] = df.customer_phone.str[:3]
-#      df = df[~df.phone.str.contains('520')]
+     # удвление тестовых номеров, которые начинаются на 520...
+     df['phone'] = df.customer_phone.str[:3]
+     df = df[~df.phone.str.contains('520')]
 
-#      # удаление пропусков, которые появляются из за особенностей выгрузки
-#      df = df.dropna()
-#      file_container = st.expander("Check your uploaded .csv")   
-#      st.write(df)
-# else:
-#     st.info(
-#         f"""
-#              👆 Загрузите файл с расширением .csv
+     # удаление пропусков, которые появляются из за особенностей выгрузки
+     df = df.dropna()
+     file_container = st.expander("Check your uploaded .csv")   
+     st.write(df)
+else:
+    st.info(
+        f"""
+             👆 Загрузите файл с расширением .csv
              
-#              В файле должны стого содержаться следующие столбцы: id пользователя, id задачи, платформа, роль пользователя
-#              """
-#     )
-#     st.stop()
+             В файле должны стого содержаться следующие столбцы: id пользователя, id задачи, платформа, роль пользователя
+             """
+    )
+    st.stop()
 
 # %%
 st.write("""
@@ -56,32 +56,32 @@ st.write("""
 - customer_phone - будет выступать в роли id пользователя""")
 
 # %%
-df = pd.read_csv('/Users/arturfattahov/Downloads/task_september_february.csv', sep='|')
+# df = pd.read_csv('/Users/arturfattahov/Downloads/task_september_february.csv', sep='|')
 
-df.columns = [
-        'task_id',
-        'task_name',
-        'status',
-        'communication_method',
-        'date_creation',
-        'customer_phone',
-        'plathorm'
-]
+# df.columns = [
+#         'task_id',
+#         'task_name',
+#         'status',
+#         'communication_method',
+#         'date_creation',
+#         'customer_phone',
+#         'plathorm'
+# ]
 
-# изменение типов
-df['customer_phone'] = df['customer_phone'].astype(str)
-df['task_id'] = df['task_id'].astype(int)
-df['date_creation'] = pd.to_datetime(df['date_creation'], format='%Y-%m-%dT%H:%M:%S')
+# # изменение типов
+# df['customer_phone'] = df['customer_phone'].astype(str)
+# df['task_id'] = df['task_id'].astype(int)
+# df['date_creation'] = pd.to_datetime(df['date_creation'], format='%Y-%m-%dT%H:%M:%S')
 
-# удвление тестовых номеров, которые начинаются на 520...
-df['phone'] = df.customer_phone.str[:3]
-df = df[~df.phone.str.contains('520')]
+# # удвление тестовых номеров, которые начинаются на 520...
+# df['phone'] = df.customer_phone.str[:3]
+# df = df[~df.phone.str.contains('520')]
 
-# удаление пропусков, которые появляются из за особенностей выгрузки
-df = df.dropna()
+# # удаление пропусков, которые появляются из за особенностей выгрузки
+# df = df.dropna()
 
-df.info()
-df.sample(2)
+# df.info()
+# df.sample(2)
 
 # %%
 df = df.sort_values(by=['customer_phone', 'date_creation'])
