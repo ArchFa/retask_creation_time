@@ -1,3 +1,4 @@
+
 # %%
 import pandas as pd
 import streamlit as st
@@ -8,8 +9,8 @@ from collections import Counter
 
 # %%
 st.title("Количество созданных задач")
+st.write("Время создания повторной задачи, количетво повторных задач")
 
-#st.set_page_config(page_title="Количество задач")
 
 
 uploaded_file = st.file_uploader("Выбирете файл")
