@@ -7,7 +7,7 @@ from collections import Counter
 # # Обзор данных
 
 # %%
-st.set_page_config(page_title="Количество задач", layout="wide")
+st.set_page_config(page_title="Количество задач")
 
 
 uploaded_file = st.file_uploader("Выбирете файл")
